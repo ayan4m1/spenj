@@ -1,0 +1,37 @@
+{
+  "name": "spenj",
+  "version": "0.0.1",
+  "description": "parser for Space Engineers prefabs",
+  "author": "ayan4m1 <andrew@bulletlogic.com>",
+  "main": [
+    "index.coffee"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "gulp",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bulletlogic/spenj"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "coffeelint": "^1.6.0",
+    "gulp-coffeelint": "^0.4.0",
+    "gulp-coverage": "~0.2.x",
+    "gulp-jasmine": "^1.0.0"
+  },
+  "dependencies": {
+    "coffee-script": "^1.8.0",
+    "del": "^0.1.2",
+    "gulp": "^3.8.8",
+    "gulp-coffee": "^2.2.0"
+  }
+}
