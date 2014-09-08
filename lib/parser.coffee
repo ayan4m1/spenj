@@ -1,5 +1,11 @@
 'use strict';
 
-module.exports =
-  parse: (xml) ->
-    console.log(xml)
+libxmljs = require 'libxmljs'
+
+module.exports = (xml) ->
+  try
+    prefab = libxmljs.parseXml(xml)
+  catch err
+    return err
+
+  prefab
