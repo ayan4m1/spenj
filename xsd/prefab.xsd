@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <xs:import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="xsi.xsd"/>
+  <xs:element name="Definitions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Prefabs"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Prefabs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Prefab"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Prefab">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Id"/>
+        <xs:element ref="RespawnShip"/>
+        <xs:choice>
+          <xs:element ref="CubeGrid"/>
+          <xs:element ref="CubeGrids"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RespawnShip" type="xs:boolean"/>
+  <xs:element name="CubeGrids">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="CubeGrid"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Id">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TypeId"/>
+        <xs:element ref="SubtypeId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CubeGrid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EntityId"/>
+        <xs:element ref="PersistentFlags"/>
+        <xs:element ref="PositionAndOrientation"/>
+        <xs:element ref="GridSizeEnum"/>
+        <xs:element ref="CubeBlocks"/>
+        <xs:element ref="IsStatic"/>
+        <xs:element minOccurs="0" ref="Skeleton"/>
+        <xs:element ref="LinearVelocity"/>
+        <xs:element ref="AngularVelocity"/>
+        <xs:element ref="XMirroxPlane"/>
+        <xs:element ref="YMirroxPlane"/>
+        <xs:element ref="ZMirroxPlane"/>
+        <xs:element minOccurs="0" ref="DampenersEnabled"/>
+        <xs:element minOccurs="0" ref="ConveyorLines"/>
+        <xs:element minOccurs="0" ref="BlockGroups"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="Handbrake"/>
+          <xs:element ref="DisplayName"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PersistentFlags" type="xs:string"/>
+  <xs:element name="PositionAndOrientation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Position"/>
+        <xs:element ref="Forward"/>
+        <xs:element ref="Up"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GridSizeEnum" type="xs:NCName"/>
+  <xs:element name="CubeBlocks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MyObjectBuilder_CubeBlock"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyObjectBuilder_CubeBlock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SubtypeName"/>
+        <xs:element minOccurs="0" ref="EntityId"/>
+        <xs:element ref="Min"/>
+        <xs:element minOccurs="0" ref="IntegrityPercent"/>
+        <xs:element minOccurs="0" ref="BuildPercent"/>
+        <xs:element ref="BlockOrientation"/>
+        <xs:element ref="ColorMaskHSV"/>
+        <xs:element minOccurs="0" ref="ShareMode"/>
+        <xs:element minOccurs="0" ref="PistonBlockId"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="CustomName"/>
+          <xs:element ref="Enabled"/>
+          <xs:element ref="ShowOnHUD"/>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="Radius"/>
+        <xs:element minOccurs="0" ref="ColorRed"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="ColorGreen"/>
+          <xs:element ref="ColorBlue"/>
+        </xs:sequence>
+        <xs:choice minOccurs="0">
+          <xs:element ref="DetectionRadius"/>
+          <xs:sequence>
+            <xs:element ref="RotorEntityId"/>
+            <xs:element ref="TargetVelocity"/>
+            <xs:element ref="MinAngle"/>
+            <xs:element ref="MaxAngle"/>
+            <xs:element ref="CurrentAngle"/>
+            <xs:element ref="LimitsActive"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element ref="Velocity"/>
+            <xs:element ref="MaxLimit"/>
+            <xs:element ref="MinLimit"/>
+            <xs:element ref="Reverse"/>
+            <xs:element ref="TopBlockId"/>
+            <xs:element ref="CurrentPosition"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element ref="CurrentStoredPower"/>
+            <xs:element ref="ProducerEnabled"/>
+            <xs:element ref="MaxStoredPower"/>
+            <xs:element ref="SemiautoEnabled"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element ref="State"/>
+            <xs:element ref="Opening"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element ref="Falloff"/>
+            <xs:element ref="Intensity"/>
+          </xs:sequence>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="IsLocked"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="BrakeForce"/>
+          <xs:element ref="AutoLock"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="SelectedGunType"/>
+        <xs:element minOccurs="0" ref="BroadcastRadius"/>
+        <xs:element minOccurs="0" ref="PilotRelativeWorld"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="UseSingleWeaponMode"/>
+          <xs:element ref="PilotGunDefinition"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="Toolbar"/>
+        <xs:element minOccurs="0" ref="AnyoneCanUse"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="InputInventory"/>
+          <xs:element ref="OutputInventory"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="CurrentBlueprint"/>
+        <xs:element minOccurs="0" ref="Queue"/>
+        <xs:element minOccurs="0" ref="CurrentProgress"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="FieldSize"/>
+          <xs:sequence>
+            <xs:element ref="DisassembleEnabled"/>
+            <xs:element ref="RepeatAssembleEnabled"/>
+            <xs:element ref="RepeatDisassembleEnabled"/>
+          </xs:sequence>
+        </xs:choice>
+        <xs:element minOccurs="0" ref="Inventory"/>
+        <xs:element minOccurs="0" ref="UseConveyorSystem"/>
+        <xs:element minOccurs="0" ref="Range"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="RemainingAmmo"/>
+          <xs:element ref="Target"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="TargetMoving"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="ContainerType"/>
+          <xs:element ref="IsPotentialTarget"/>
+          <xs:element ref="SteamUserId"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attributeGroup ref="xsi:type"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Min">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:integer"/>
+      <xs:attribute name="y" use="required" type="xs:integer"/>
+      <xs:attribute name="z" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrityPercent" type="xs:double"/>
+  <xs:element name="BuildPercent" type="xs:double"/>
+  <xs:element name="BlockOrientation">
+    <xs:complexType>
+      <xs:attribute name="Forward" use="required" type="xs:NCName"/>
+      <xs:attribute name="Up" use="required" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ColorMaskHSV">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="X"/>
+        <xs:element ref="Y"/>
+        <xs:element ref="Z"/>
+      </xs:sequence>
+      <xs:attribute name="x" type="xs:decimal"/>
+      <xs:attribute name="y" type="xs:decimal"/>
+      <xs:attribute name="z" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShareMode" type="xs:NCName"/>
+  <xs:element name="PistonBlockId" type="xs:integer"/>
+  <xs:element name="CustomName" type="xs:string"/>
+  <xs:element name="Enabled" type="xs:boolean"/>
+  <xs:element name="ShowOnHUD" type="xs:boolean"/>
+  <xs:element name="Radius" type="xs:decimal"/>
+  <xs:element name="ColorRed" type="xs:decimal"/>
+  <xs:element name="ColorGreen" type="xs:decimal"/>
+  <xs:element name="ColorBlue" type="xs:decimal"/>
+  <xs:element name="DetectionRadius" type="xs:integer"/>
+  <xs:element name="RotorEntityId" type="xs:integer"/>
+  <xs:element name="TargetVelocity" type="xs:decimal"/>
+  <xs:element name="MinAngle" type="xs:decimal"/>
+  <xs:element name="MaxAngle" type="xs:decimal"/>
+  <xs:element name="CurrentAngle" type="xs:decimal"/>
+  <xs:element name="LimitsActive" type="xs:boolean"/>
+  <xs:element name="Velocity" type="xs:decimal"/>
+  <xs:element name="MaxLimit" type="xs:decimal"/>
+  <xs:element name="MinLimit" type="xs:integer"/>
+  <xs:element name="Reverse" type="xs:boolean"/>
+  <xs:element name="TopBlockId" type="xs:integer"/>
+  <xs:element name="CurrentPosition" type="xs:decimal"/>
+  <xs:element name="CurrentStoredPower" type="xs:decimal"/>
+  <xs:element name="ProducerEnabled" type="xs:boolean"/>
+  <xs:element name="MaxStoredPower" type="xs:integer"/>
+  <xs:element name="SemiautoEnabled" type="xs:boolean"/>
+  <xs:element name="State" type="xs:boolean"/>
+  <xs:element name="Opening" type="xs:decimal"/>
+  <xs:element name="Falloff" type="xs:decimal"/>
+  <xs:element name="Intensity" type="xs:decimal"/>
+  <xs:element name="IsLocked" type="xs:boolean"/>
+  <xs:element name="BrakeForce" type="xs:integer"/>
+  <xs:element name="AutoLock" type="xs:boolean"/>
+  <xs:element name="SelectedGunType">
+    <xs:complexType mixed="true">
+      <xs:attribute ref="xsi:nil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BroadcastRadius" type="xs:integer"/>
+  <xs:element name="PilotRelativeWorld">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="Position"/>
+        <xs:element ref="Forward"/>
+        <xs:element ref="Up"/>
+      </xs:sequence>
+      <xs:attribute ref="xsi:nil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UseSingleWeaponMode" type="xs:boolean"/>
+  <xs:element name="PilotGunDefinition">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="TypeId"/>
+        <xs:element ref="SubtypeId"/>
+      </xs:sequence>
+      <xs:attribute ref="xsi:nil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Toolbar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ToolbarType"/>
+        <xs:element ref="SelectedSlot"/>
+        <xs:element ref="Slots"/>
+        <xs:element ref="ColorMaskHSVList"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ToolbarType" type="xs:NCName"/>
+  <xs:element name="SelectedSlot">
+    <xs:complexType mixed="true">
+      <xs:attribute ref="xsi:nil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Slots">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Slot"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Slot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Index"/>
+        <xs:element ref="Item"/>
+        <xs:element ref="Data"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Index" type="xs:integer"/>
+  <xs:element name="Data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="DefinitionId"/>
+        <xs:element minOccurs="0" ref="Action"/>
+        <xs:element minOccurs="0" ref="GridEntityId"/>
+        <xs:element minOccurs="0" ref="BlockEntityId"/>
+        <xs:element minOccurs="0" ref="GroupName"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="xsi:type1"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DefinitionId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TypeId"/>
+        <xs:element ref="SubtypeId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Action" type="xs:NCName"/>
+  <xs:element name="GridEntityId" type="xs:integer"/>
+  <xs:element name="BlockEntityId" type="xs:integer"/>
+  <xs:element name="GroupName" type="xs:string"/>
+  <xs:element name="ColorMaskHSVList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Vector3"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Vector3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="X"/>
+        <xs:element ref="Y"/>
+        <xs:element ref="Z"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AnyoneCanUse" type="xs:boolean"/>
+  <xs:element name="InputInventory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Items"/>
+        <xs:element minOccurs="0" ref="nextItemId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OutputInventory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Items"/>
+        <xs:element minOccurs="0" ref="nextItemId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CurrentBlueprint">
+    <xs:complexType>
+      <xs:attribute ref="xsi:nil" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Queue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CurrentProgress" type="xs:integer"/>
+  <xs:element name="FieldSize">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:decimal"/>
+      <xs:attribute name="y" use="required" type="xs:decimal"/>
+      <xs:attribute name="z" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisassembleEnabled" type="xs:boolean"/>
+  <xs:element name="RepeatAssembleEnabled" type="xs:boolean"/>
+  <xs:element name="RepeatDisassembleEnabled" type="xs:boolean"/>
+  <xs:element name="Inventory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Items"/>
+        <xs:element minOccurs="0" ref="nextItemId"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UseConveyorSystem" type="xs:boolean"/>
+  <xs:element name="Range" type="xs:decimal"/>
+  <xs:element name="RemainingAmmo" type="xs:integer"/>
+  <xs:element name="Target" type="xs:integer"/>
+  <xs:element name="TargetMoving" type="xs:boolean"/>
+  <xs:element name="ContainerType" type="xs:NCName"/>
+  <xs:element name="IsPotentialTarget" type="xs:boolean"/>
+  <xs:element name="SteamUserId" type="xs:integer"/>
+  <xs:element name="IsStatic" type="xs:boolean"/>
+  <xs:element name="Skeleton">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="BoneInfo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoneInfo">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="BoneOffset"/>
+        <xs:element ref="BonePosition"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BoneOffset">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:integer"/>
+      <xs:attribute name="y" use="required" type="xs:integer"/>
+      <xs:attribute name="z" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BonePosition">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:integer"/>
+      <xs:attribute name="y" use="required" type="xs:integer"/>
+      <xs:attribute name="z" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinearVelocity">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:double"/>
+      <xs:attribute name="y" use="required" type="xs:double"/>
+      <xs:attribute name="z" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AngularVelocity">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:double"/>
+      <xs:attribute name="y" use="required" type="xs:double"/>
+      <xs:attribute name="z" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="XMirroxPlane">
+    <xs:complexType>
+      <xs:attribute name="x" type="xs:integer"/>
+      <xs:attribute name="y" type="xs:integer"/>
+      <xs:attribute name="z" type="xs:integer"/>
+      <xs:attribute ref="xsi:nil"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="YMirroxPlane">
+    <xs:complexType>
+      <xs:attribute ref="xsi:nil" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZMirroxPlane">
+    <xs:complexType>
+      <xs:attribute ref="xsi:nil" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DampenersEnabled" type="xs:boolean"/>
+  <xs:element name="ConveyorLines">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MyObjectBuilder_ConveyorLine"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyObjectBuilder_ConveyorLine">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="StartPosition"/>
+        <xs:element ref="StartDirection"/>
+        <xs:element ref="EndPosition"/>
+        <xs:element ref="EndDirection"/>
+        <xs:element minOccurs="0" ref="Sections"/>
+        <xs:element minOccurs="0" ref="ConveyorLineType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartPosition">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:integer"/>
+      <xs:attribute name="y" use="required" type="xs:integer"/>
+      <xs:attribute name="z" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartDirection" type="xs:NCName"/>
+  <xs:element name="EndPosition">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:integer"/>
+      <xs:attribute name="y" use="required" type="xs:integer"/>
+      <xs:attribute name="z" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EndDirection" type="xs:NCName"/>
+  <xs:element name="Sections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Section"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Section">
+    <xs:complexType>
+      <xs:attribute name="Direction" use="required" type="xs:NCName"/>
+      <xs:attribute name="Length" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConveyorLineType" type="xs:NCName"/>
+  <xs:element name="BlockGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="MyObjectBuilder_BlockGroup"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyObjectBuilder_BlockGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Blocks"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Name" type="xs:string"/>
+  <xs:element name="Blocks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Vector3I"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Vector3I">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="X"/>
+        <xs:element ref="Y"/>
+        <xs:element ref="Z"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Handbrake" type="xs:boolean"/>
+  <xs:element name="DisplayName" type="xs:string"/>
+  <xs:element name="TypeId" type="xs:NCName"/>
+  <xs:element name="SubtypeId" type="xs:string"/>
+  <xs:element name="EntityId" type="xs:integer"/>
+  <xs:element name="Position">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:decimal"/>
+      <xs:attribute name="y" use="required" type="xs:decimal"/>
+      <xs:attribute name="z" use="required" type="xs:decimal"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Forward">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:double"/>
+      <xs:attribute name="y" use="required" type="xs:double"/>
+      <xs:attribute name="z" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Up">
+    <xs:complexType>
+      <xs:attribute name="x" use="required" type="xs:double"/>
+      <xs:attribute name="y" use="required" type="xs:double"/>
+      <xs:attribute name="z" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubtypeName" type="xs:string"/>
+  <xs:element name="X" type="xs:decimal"/>
+  <xs:element name="Y" type="xs:decimal"/>
+  <xs:element name="Z" type="xs:decimal"/>
+  <xs:element name="Item">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="Id"/>
+        <xs:element ref="Amount"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Items">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="MyObjectBuilder_InventoryItem"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MyObjectBuilder_InventoryItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="Amount"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="AmountDecimal"/>
+          <xs:element ref="ItemId"/>
+          <xs:element ref="PhysicalContent"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AmountDecimal" type="xs:decimal"/>
+  <xs:element name="ItemId" type="xs:integer"/>
+  <xs:element name="PhysicalContent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="SubtypeName"/>
+        <xs:element minOccurs="0" ref="ProjectilesCount"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="xsi:type"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProjectilesCount" type="xs:integer"/>
+  <xs:element name="nextItemId" type="xs:integer"/>
+  <xs:element name="Amount" type="xs:decimal"/>
+</xs:schema>

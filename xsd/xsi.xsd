@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <xs:import schemaLocation="Prefab.xsd"/>
+  <xs:attributeGroup name="type">
+    <xs:attribute name="type" use="required" form="qualified" type="xs:NCName"/>
+  </xs:attributeGroup>
+  <xs:attribute name="nil" type="xs:boolean"/>
+  <xs:attributeGroup name="type1">
+    <xs:attribute name="type" use="required" form="qualified"/>
+  </xs:attributeGroup>
+</xs:schema>
